@@ -1,0 +1,58 @@
+//----borrar elemento--- metodo splice//
+if (bandera) {
+     unique.push(item);
+     console.log("Elemento agregado al array.");
+   } else {
+     Supongamos que queremos eliminar el primer elemento que coincida
+     const indice = unique.indexOf(item);
+     if (indice !== -1) {
+       unique.splice(indice, 1);
+       console.log("Elemento eliminado del array.");
+
+     } else {
+       console.log("Elemento no encontrado en el array.");
+     }
+   }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //----//
+https://sweetalert2.github.io/#download
+//----//
+
+Swal.fire({
+    title: 'nombre\n\ del\n\ gasto\n\n\ Repetido!',
+    text: 'Do you want to continue',
+    icon: 'question',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: "Save",
+   // denyButtonText: `Don't save`
+     }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+   bandera=true
+        //     Swal.fire("Saved!", "", "success");
+} else if (result.isDenied) {
+    bandera=false
+}
+});
+}
+ //alert('clik del usuario');
+  //if(Swal.fire().isAwaitingPromise==true){alert()}	
+
