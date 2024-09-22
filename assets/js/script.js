@@ -1,26 +1,55 @@
+let listaNombresGastos = [];
+let listaValoresGastos = [];
 
-let __listaNombresGastos = [];
-let __listaNombresGastos1 = [];
+let totalGastoGeneral=0
 let bandera2=false
 var bandera=false
-function clickBoton(){
-    let nombreGasto = document.getElementById('nombreGasto').value;
-    let valorGasto = document.getElementById('valorGasto').value;
-    const objeto ={
-          nombreGasto,
-          valorGasto,
-          }
+function clickBoton(){ 
+  const anterioElementos = document.getElementById('GastoAnterior');
+  
+let nombregasto = document.getElementById('nombreGasto').value;
+let valorGasto = document.getElementById('valorGasto').value;
+listaNombresGastos.push(nombregasto);
+listaValoresGastos.push(valorGasto);
+actualizarListaGastos()
+anterioElementos.innerHTML=totalGastoGeneral
+unAlert()
 
-__listaNombresGastos.push({nombreGasto,valorGasto});
-          unAlert() 
-if(bandera==true){
-  alertas(objeto)
 }
-          console.log(__listaNombresGastos)
+
+
+function actualizarListaGastos(){
+
+  const listaElementos = document.getElementById('listaDeGastos');
+const totalElementos = document.getElementById('totalGastos');
+let htmlLista = '';
+let totalGasto = 0;
+          //  dot to iterar onto unordered list 
+listaNombresGastos.forEach((elemento,posicion) => {
+    const valorGasto = Number(listaValoresGastos [posicion]);
+          // add variables to invoke from callback   
+    htmlLista += `<li>${elemento} - USD ${valorGasto.toFixed(2)}
+    <button onclick="eliminarGasto(${posicion});">Eliminar</button>
+    </li>`;
+    // Calculamos El Total Gasto
+    totalGasto += Number(valorGasto);
+    
+});
+listaElementos.innerHTML = htmlLista;
+totalElementos.innerHTML = totalGasto.toFixed(2);
+//limpiar();
+totalGastoGeneral=totalGasto;
+
 }
+
+
+
+
+
+
 
 function unAlert() {
-let personasUnicas = __listaNombresGastos.reduce((unique, item) => {
+let personasUnicas =listaNombresGastos.reduce((unique, item) => {
         if (!unique.some(obj => obj.nombreGasto === item.nombreGasto)) {
             unique.push(item);
         bandera=false
@@ -30,11 +59,23 @@ let personasUnicas = __listaNombresGastos.reduce((unique, item) => {
        }
 return unique 
 },[]);
-        limpiar()
         console.log(personasUnicas)
-return bandera
+//return bandera
 }
-                // usando librerias 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// usando librerias 
 const alertas=({objeto})=>{
 const listaElementos = document.getElementById('listaDeGastos');
 Swal.fire({
