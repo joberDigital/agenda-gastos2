@@ -1,5 +1,5 @@
 let bandera2=false
-var bandera=false
+let bandera=false
 let confirmar
 
 const arrayAlmacen =[]
