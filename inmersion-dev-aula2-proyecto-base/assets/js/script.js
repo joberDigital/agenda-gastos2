@@ -1,5 +1,5 @@
 let bandera2=false
-var bandera=false
+let bandera=false
 let confirmar
 
 const arrayAlmacen =[]
@@ -17,70 +17,6 @@ function clickBoton(){
           valorGasto,
           }
 
-<<<<<<< HEAD
-document.getElementById('nombreGasto').value=""  
-document.getElementById('valorGasto').value=""
-}
-
-
-let listaNombresGastos = [];
-let listaValoresGastos = [];
-
-let __lista = [];
-let totalGastoGeneral=0;
-let bandera2=false
-var bandera=false
-
-function clickBoton(){
-    let nombreGasto = document.getElementById('nombreGasto').value;
-    let valorGasto = document.getElementById('valorGasto').value;
-
-     listaNombresGastos.push(nombreGasto);
-     listaValoresGastos.push(valorGasto);
-
-    unAlert() 
-    if(bandera==true){
-      alertas({nombreGasto})
-    }
-      console.log(listaNombresGastos)
-      console.log(listaValoresGastos)
-  
-      //const mostrarTotal=
-      actualizarListaGastos()
-}
-
-
-const actualizarListaGastos=()=>{
-  const totalElementos = document.getElementById('totalGastos');
-
-
-
-  totalElementos.innerHTML=valorGasto
-console.log()
-}
-
-
-
-
-function unAlert() {
-let personasUnicas = listaNombresGastos.reduce((unique, item) => {
-        if (!unique.some(obj => obj.nombreGasto === item.nombreGasto)) {
-            unique.push(item);
-        bandera=false
-        }
-        else{
-        bandera=true
-       }
-return unique 
-},[]);
-        limpiar()
-//        console.log(personasUnicas)
-return bandera
-}
-                // usando librerias 
-const alertas=({nombreGasto})=>{
-const listaElementos = document.getElementById('listaDeGastos');
-=======
           if (gastoActual === -1) {
             __listaNombresGastos.push({nombreGasto,valorGasto});
 
@@ -146,7 +82,6 @@ htmlLista += `<li>${arrayAlmacen[posicion].nombreGasto} - USD ${valorGasto.toFix
 // usando librerias 
 
 const alertas=()=>{
->>>>>>> step_4
 Swal.fire({
     title: 'nombre\n\ del\n\ gasto\n\n\ Repetido!',
     text: 'Do you want to continue',
@@ -156,23 +91,6 @@ Swal.fire({
      }).then((result) => {
     if (result.isConfirmed) {
    bandera2=true
-<<<<<<< HEAD
-   listaNombresGastos.push({nombreGasto});
-    }
-    else if (result.isDenied) {
-    listaNombresGastos.splice(nombreGasto, 1);
-    bandera2=false
-    } 
-    })
-    console.log(bandera)
-    console.log(bandera2)
-}
-function limpiar(){
-  document.getElementById('nombreGasto').value = "";
-  document.getElementById('valorGasto').value = "";
-
-}
-=======
 }
   else if (result.isDenied) {
     bandera2=false
@@ -202,4 +120,3 @@ function modificarGasto(posicion){
 function actualizarGasto(){
         clickBoton();
 }
->>>>>>> step_4
